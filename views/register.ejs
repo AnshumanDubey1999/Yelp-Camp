@@ -1,0 +1,90 @@
+<%- include("partials/header") %> 
+
+<div class="container" id="registerForm">
+    <h3 class="text-center">Create Account</h3>
+    <form action="/register" method="POST">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input class="form-control" type="text" name="firstname" autofocus>
+                </div> 
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input class="form-control" type="text" name="lastname">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username">
+        </div>
+        <div class="form-group">
+            <label for="username">Avatar URL</label>
+            <input class="form-control" type="text" name="avatar">
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="contact">Contact Number</label>
+                            <input class="form-control" type="number" name="contact">
+                        </div>
+                        <div class="col-2">
+                            <select name="contactPrivacy" id="contact">
+                                <option value="false">&#xf57c</option>
+                                <option value="true">&#xf023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="emailID">Email Address</label>
+                            <input class="form-control" type="email" name="email">
+                        </div>
+                        <div class="col-2">
+                            <select name="emailPrivacy" id="emailID">
+                                <option value="false">&#xf57c</option>
+                                <option value="true">&#xf023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="password">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control pwdMatch" type="password" name="password">
+                    <small class="form-text">The password isn't strong enough!</small>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="password">Confirm Password</label>
+                    <input class="form-control pwdMatch" type="password" name="confirmPassword">
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" style="width: 100%;" disabled>SignUp</button>
+        </div>
+    </form>
+</div>
+
+<script src="/javascript/register.js"></script>
+
+<%- include("partials/footer") %> 
+
+  

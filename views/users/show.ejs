@@ -1,0 +1,53 @@
+<%- include("../partials/header") %> 
+
+<div class="container" id="userDetail">
+    <div class="row">
+        <div class="col-12 col-sm-4">
+            <img src="<%= user.avatar %> " alt="" id="avatar">
+        </div>
+        <div class="col-12 col-sm-8">
+            <span id="name"><%= user.firstname + " " + user.lastname %> </span><br>
+            <span id="username">@<%= user.username %> </span><br>
+            <% if(!user.emailPrivacy || (currentUser &&  (user._id.equals(currentUser._id) || currentUser.isAdmin))) { %>
+                <span id="email"> <%= user.email %> </span>
+            <% } %> 
+            <br>
+            <% if(!user.contactPrivacy || (currentUser &&  (user._id.equals(currentUser._id) || currentUser.isAdmin))) { %>
+                <span id="contact"> <%= user.contact %> </span>
+            <% } %> 
+            <br>
+            <span> Campgrounds Owned: <%= campgrounds.length %> </span>
+            <% if(currentUser &&  (user._id.equals(currentUser._id) || currentUser.isAdmin)) { %>
+                <form class="float-right" action="/users/<%= user._id %>?_method=DELETE", method="POST">
+                    <button type="submit" class="btn btn-sm ml-2 btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                </form>
+                <a href="/users/<%= user._id %>/edit" class="btn btn-sm btn-outline-info float-right"><i class="far fa-edit"></i></a>
+            <% } %> 
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div id="camps" class="row align-items-start">
+        <% campgrounds.forEach(campground => { %>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <a href="/campgrounds/<%= campground._id %> ">
+                    <div class="card">
+                        <img class="card-img-top" src= <%= campground.image %> alt="Card image cap">
+                        
+                        <h6 class="card-title text-center font-weight-normal mt-2"> <%= campground.name %> </h6>
+                    </div>
+                </a>
+            </div>
+        <% }); %> 
+    </div>
+    <% if(campgrounds.length === 0){ %>
+        <span id="NoCampground">No Campground Added!</span>
+    <% } %> 
+</div>
+
+
+
+<%- include("../partials/footer") %> 
+
+  

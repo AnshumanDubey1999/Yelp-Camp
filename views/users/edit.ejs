@@ -1,0 +1,70 @@
+<%- include("../partials/header") %> 
+
+<div class="container" id="registerForm">
+    <h3 class="text-center">Edit Account</h3>
+    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input class="form-control" type="text"  name="user[firstname]" value="<%= user.firstname %> " autofocus>
+                </div> 
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input class="form-control" type="text" name="user[lastname]"  value="<%= user.lastname %> ">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="username">Avatar URL</label>
+            <input class="form-control" type="text" name="user[avatar]"  value="<%= user.avatar %> ">
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="contact">Contact Number</label>
+                            <input class="form-control" type="number" name="user[contact]"  value="<%= user.contact %> ">
+                        </div>
+                        <div class="col-2">
+                            <select name="user[contactPrivacy]" id="contact">
+                                <option value="false"  <%= !user.contactPrivacy?"selected": "" %> >&#xf57c</option>
+                                <option value="true" <%= user.contactPrivacy?"selected": "" %>>&#xf023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="emailID">Email Address</label>
+                            <input class="form-control" type="email" name="user[email]"  value="<%= user.email %> ">
+                        </div>
+                        <div class="col-2">
+                            <select name="user[emailPrivacy]" id="emailID">
+                                <option value="false"  <%= !user.emailPrivacy?"selected": "" %> >&#xf57c</option>
+                                <option value="true" <%= user.emailPrivacy?"selected": "" %>>&#xf023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+<%- include("../partials/footer") %> 
+
+  
