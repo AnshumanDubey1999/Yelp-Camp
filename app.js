@@ -17,6 +17,8 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes         = require("./routes/index"),
     userRoutes          = require("./routes/users")
 
+require("dotenv").config()
+
 //MONGOOSE CONFIGE
 const uri = process.env.MONGODB_URI;
 mongoose.set('useFindAndModify', false);
