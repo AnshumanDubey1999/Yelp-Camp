@@ -72,6 +72,8 @@ app.use("/users" ,userRoutes)
 app.use("/campgrounds/:id/comments" ,commentRoutes)
 
 
-app.listen(3000, function(){
-    console.log("Yelp Camp is on FIRE!!!")
-})
+app.listen(process.env.PORT, process.env.IP)
+
+// app.listen(3000, function(){
+//     console.log("Yelp Camp is on FIRE!!!")
+// })
